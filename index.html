@@ -79,17 +79,18 @@
   .card .go{display:inline-block;margin-top:18px;color:var(--brand);font-weight:700;font-size:14px}
 
   /* CALC */
-  .calc{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .calc{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
   .panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px}
   .panel.tint{background:linear-gradient(160deg,#f6f4ff,#fff 60%)}
   label{display:block;font-size:14px;font-weight:700;color:#33344a;margin-bottom:8px}
   .field{margin-bottom:22px}
   .inp{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:16px;padding:0 18px;height:58px;background:#fff;transition:.2s}
   .inp:focus-within{border-color:var(--brand);box-shadow:0 0 0 4px rgba(91,79,240,.12)}
-  .inp input{flex:1;border:0;outline:0;font:inherit;font-size:20px;font-weight:700;background:none;min-width:0}
+  .inp input{flex:1;width:100%;border:0;outline:0;font:inherit;font-size:20px;font-weight:700;background:none;min-width:0}
   .inp span{color:var(--mute);font-weight:600}
   input[type=range]{width:100%;accent-color:var(--brand);margin-top:12px}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .hint{display:block;margin-top:6px;font-size:12.5px;color:var(--mute)}
   .result-main{font-size:15px;color:var(--sub)}
   .result-big{font-size:clamp(36px,4.4vw,54px);font-weight:900;letter-spacing:-.04em;margin:6px 0 22px;color:var(--brand)}
   .bar{display:flex;height:14px;border-radius:99px;overflow:hidden;background:#eee;margin-bottom:22px}
@@ -115,12 +116,15 @@
     .hero-inner{grid-template-columns:1fr;padding:48px 24px}
     .orbit-wrap{margin-top:30px}
     .cards{grid-template-columns:1fr 1fr}
-    .calc,.list{grid-template-columns:1fr}
+    .calc,.list{grid-template-columns:minmax(0,1fr)}
     .menu{gap:16px;font-size:14px}
     .nav{padding:0 18px}
   }
   @media(max-width:560px){
     .cards{grid-template-columns:1fr}
+    .row2{grid-template-columns:minmax(0,1fr);gap:0}
+    .panel{padding:24px 20px}
+    section.block{padding-left:20px;padding-right:20px}
     .menu a:not(.start){display:none}
     .btn{height:58px;font-size:16px}
     .lead{font-size:16px}
@@ -137,7 +141,7 @@
     </a>
     <nav class="menu">
       <a href="#calc">계산기</a>
-      <a href="#guide">블로그</a>
+      <a href="#guide">가이드</a>
       <a href="#support">지원금</a>
       <a class="start" href="#calc">시작하기</a>
     </nav>
@@ -149,9 +153,9 @@
   <div class="hero">
     <div class="hero-inner">
       <div>
-        <div class="eyebrow">청년 파일럿</div>
+        <div class="eyebrow">유스픽</div>
         <h1>첫 월급부터<br>내 집 마련까지,<br>순서대로 시작해요</h1>
-        <p class="lead">월급 실수령액, 청년 저축 제도, 청약가점, 대출 이자까지. 사회초년생이 가장 먼저 궁금해하는 것들을 법령과 공식 자료 기준으로 한곳에 모았어요. 계산은 무료예요.</p>
+        <p class="lead">월급 실수령액, 청년 저축 제도, 청약가점, 대출 이자까지. 사회초년생이 가장 먼저 궁금해하는 것들을 한곳에 모았어요. 계산은 무료예요.</p>
         <div class="cta">
           <a class="btn dark" href="#calc"><span class="orb"></span>내 월급 계산하기</a>
           <a class="btn light" href="#support">
@@ -161,7 +165,7 @@
         </div>
         <div class="trust">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5b4ff0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 1.6 2.9-.1 1.2 2.6 2.5 1.5-.5 2.9L21 12l-1.5 2.5.5 2.9-2.5 1.5-1.2 2.6-2.9-.1L12 22l-2.4-1.6-2.9.1-1.2-2.6-2.5-1.5.5-2.9L3 12l1.5-2.5-.5-2.9 2.5-1.5 1.2-2.6 2.9.1z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
-          <span>법령·공식 자료 기준</span><span class="dot">·</span><span>무료, 회원가입 불필요</span><span class="dot">·</span><span>참고용 정보</span>
+          <span>무료, 회원가입 불필요</span><span class="dot">·</span><span>참고용 정보</span>
         </div>
       </div>
 
@@ -172,9 +176,7 @@
             <circle cx="300" cy="300" r="241" stroke="#e6e6ee"/>
             <circle cx="300" cy="300" r="190" stroke="#14141c" stroke-dasharray="5 6"/>
             <g class="spin"><circle cx="300" cy="110" r="10" fill="#14141c"/></g>
-            <line x1="193" y1="298" x2="255" y2="262" stroke="#14141c" stroke-dasharray="5 6" transform="translate(98 -26)"/>
-            <path d="M290 302L350 270" stroke="#14141c" stroke-dasharray="5 6" transform="translate(98 -26)"/>
-            <path d="M290 322L350 352" stroke="#14141c" stroke-dasharray="5 6" transform="translate(98 -26)"/>
+            <path d="M261 279L370.5 235M261 321L370.5 367" stroke="#14141c" stroke-width="2" stroke-dasharray="6 6"/>
             <g stroke="#14141c" stroke-width="2.5" fill="#fff">
               <circle cx="210" cy="300" r="55"/>
               <circle cx="415" cy="217" r="48"/>
@@ -201,7 +203,7 @@
     <p class="sec-sub">월급 → 저축 → 청약 → 대출. 하나씩 확인하며 나만의 로드맵을 만들어 보세요.</p>
     <div class="cards">
       <a class="card" href="#calc"><div class="no">01 · SALARY</div><div class="ic">💸</div><h3>월급 실수령액</h3><p>4대보험과 소득세를 뺀 진짜 내 월급을 확인해요.</p><span class="go">계산하기 →</span></a>
-      <a class="card" href="#support"><div class="no">02 · SAVINGS</div><div class="ic">🐷</div><h3>청년 저축 제도</h3><p>청년도약계좌, 내일저축 등 나에게 맞는 제도를 찾아요.</p><span class="go">살펴보기 →</span></a>
+      <a class="card" href="#support"><div class="no">02 · SAVINGS</div><div class="ic">🐷</div><h3>청년 저축 제도</h3><p>청년미래적금, 내일저축 등 나에게 맞는 제도를 찾아요.</p><span class="go">살펴보기 →</span></a>
       <a class="card" href="#support"><div class="no">03 · HOUSING</div><div class="ic">🏠</div><h3>청약가점</h3><p>무주택 기간, 부양가족, 통장 가입기간으로 가점을 가늠해요.</p><span class="go">살펴보기 →</span></a>
       <a class="card" href="#loan"><div class="no">04 · LOAN</div><div class="ic">🧮</div><h3>대출 이자</h3><p>원리금균등 상환 기준 월 납입액과 총 이자를 계산해요.</p><span class="go">계산하기 →</span></a>
     </div>
@@ -226,7 +228,8 @@
           </div>
           <div class="field">
             <label for="meal">월 비과세 (식대 등)</label>
-            <div class="inp"><input id="meal" type="number" min="0" max="500000" step="10000" value="200000"><span>원</span></div>
+            <div class="inp"><input id="meal" type="text" inputmode="numeric" value="200,000"><span>원</span></div>
+            <small class="hint">월 20만원까지 반영돼요</small>
           </div>
         </div>
         <p class="note">※ 2026년 기준 요율을 단순화한 추정치예요. 실제 급여명세서와 차이가 있을 수 있어요.</p>
@@ -271,7 +274,7 @@
     <h2>놓치기 쉬운 청년 지원 제도</h2>
     <p class="sec-sub">대표 제도만 간단히 모았어요. 조건과 금액은 해마다 달라지니 반드시 공식 사이트에서 확인하세요.</p>
     <div class="list">
-      <div class="sup"><small>저축</small><h3>청년도약계좌</h3><p>5년 만기, 정부기여금과 비과세 혜택으로 목돈을 마련해요.</p><div class="amt">월 최대 70만원</div></div>
+      <div class="sup"><small>저축</small><h3>청년미래적금</h3><p>청년도약계좌의 후속 상품이에요. 정해진 기간에만 모집해요. (2026년 2차: 10월 7~16일, 마감)</p><div class="amt">기간 모집</div></div>
       <div class="sup"><small>저축</small><h3>청년내일저축계좌</h3><p>근로 중인 저소득 청년에게 본인 저축액에 더해 지원금을 지급해요.</p><div class="amt">정부 매칭 지원</div></div>
       <div class="sup"><small>주거</small><h3>청년 월세 지원</h3><p>무주택 청년의 월세 부담을 덜어주는 한시적 지원 제도예요.</p><div class="amt">월 최대 20만원</div></div>
       <div class="sup"><small>청약</small><h3>청년 주택드림 청약통장</h3><p>청약 기능에 우대금리와 대출 연계 혜택을 더한 통장이에요.</p><div class="amt">우대금리 + 대출</div></div>
@@ -291,7 +294,7 @@
 /* ---- hero carousel ---- */
 const slides=[
   {n:'01',k:'월급',e:'SALARY',c:'4대보험·세금을 뺀 진짜 월급 확인'},
-  {n:'02',k:'저축',e:'SAVINGS',c:'청년도약계좌 등 나에게 맞는 저축 제도 찾기'},
+  {n:'02',k:'저축',e:'SAVINGS',c:'청년미래적금 등 나에게 맞는 저축 제도 찾기'},
   {n:'03',k:'청약',e:'HOUSING',c:'내 청약가점으로 내 집 마련 준비하기'},
   {n:'04',k:'대출',e:'LOAN',c:'월 납입액과 총 이자 미리 계산하기'}
 ];
@@ -315,7 +318,7 @@ go(0);restart();
 /* ---- helpers ---- */
 const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
 const num=s=>+String(s).replace(/[^\d.]/g,'')||0;
-function commaInput(el,cb){el.addEventListener('input',()=>{const v=num(el.value);el.value=v?v.toLocaleString('ko-KR'):'';cb()})}
+function commaInput(el,cb){el.addEventListener('input',()=>{const v=num(el.value);el.value=/\d/.test(el.value)?v.toLocaleString('ko-KR'):'';cb()})}
 
 /* ---- salary calc (simplified estimate) ---- */
 const salary=document.getElementById('salary'),range=document.getElementById('salaryRange'),
@@ -361,12 +364,14 @@ function calcSalary(){
     `<i style="width:${net/monthly*100}%;background:#34c38f"></i>`+
     items.map(x=>`<i style="width:${x[1]/monthly*100}%;background:${x[2]}"></i>`).join('');
   document.getElementById('detail').innerHTML=
-    `<div class="li"><span><i class="sw" style="background:#34c38f"></i>세전 월급</span><b>${won(monthly)}</b></div>`+
-    items.map(x=>`<div class="li"><span><i class="sw" style="background:${x[2]}"></i>${x[0]}</span><b>-${won(x[1])}</b></div>`).join('');
+    `<div class="li"><span>세전 월급</span><b>${won(monthly)}</b></div>`+
+    items.map(x=>`<div class="li"><span><i class="sw" style="background:${x[2]}"></i>${x[0]}</span><b>-${won(x[1])}</b></div>`).join('')+
+    `<div class="li"><span><i class="sw" style="background:#34c38f"></i>실수령액</span><b>${won(net)}</b></div>`;
 }
 commaInput(salary,()=>{range.value=Math.min(Math.max(num(salary.value),range.min),range.max);calcSalary()});
 range.addEventListener('input',()=>{salary.value=(+range.value).toLocaleString('ko-KR');calcSalary()});
-[fam,meal].forEach(e=>e.addEventListener('input',calcSalary));
+fam.addEventListener('input',calcSalary);
+commaInput(meal,calcSalary);
 calcSalary();
 
 /* ---- loan calc ---- */
