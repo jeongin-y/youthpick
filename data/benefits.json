@@ -1,0 +1,241 @@
+{
+  "updatedAt": "2026-11-28T05:30:57.487Z",
+  "benefits": [
+    {
+      "id": "sample-jobseeker",
+      "title": "청년 구직활동 수당 (가상)",
+      "agency": "서울특별시",
+      "category": "job",
+      "benefitType": "cash",
+      "amount": {
+        "monthly": 500000,
+        "lumpSum": null,
+        "durationMonths": 6,
+        "matchRate": null,
+        "matchCapMonthly": null,
+        "depositCapMonthly": null
+      },
+      "conditions": [
+        {
+          "field": "region",
+          "op": "in",
+          "min": null,
+          "max": null,
+          "values": [
+            "서울"
+          ],
+          "label": "서울 거주",
+          "evidence": "서울특별시에 거주하는 만 19세 이상 34세 이하 미취업 청년",
+          "evidenceVerified": true
+        },
+        {
+          "field": "age",
+          "op": "range",
+          "min": 19,
+          "max": 34,
+          "values": null,
+          "label": "만 19~34세",
+          "evidence": "서울특별시에 거주하는 만 19세 이상 34세 이하 미취업 청년",
+          "evidenceVerified": true
+        },
+        {
+          "field": "status",
+          "op": "in",
+          "min": null,
+          "max": null,
+          "values": [
+            "jobseeker"
+          ],
+          "label": "미취업자",
+          "evidence": "서울특별시에 거주하는 만 19세 이상 34세 이하 미취업 청년",
+          "evidenceVerified": true
+        },
+        {
+          "field": "status",
+          "op": "not_in",
+          "min": null,
+          "max": null,
+          "values": [
+            "student"
+          ],
+          "label": "대학 재학생 및 휴학생 제외",
+          "evidence": "최종학교 졸업 또는 중퇴자 (대학 재학생 및 휴학생은 제외)",
+          "evidenceVerified": true
+        },
+        {
+          "field": "other",
+          "op": "text",
+          "min": null,
+          "max": null,
+          "values": null,
+          "label": "가구 중위소득 150% 이하",
+          "evidence": "가구 중위소득 150% 이하",
+          "evidenceVerified": true
+        }
+      ],
+      "period": {
+        "start": null,
+        "end": null,
+        "always": true
+      },
+      "summary": "서울 거주 만 19~34세 미취업 청년에게 구직활동 지원금으로 월 50만원을 최대 6개월간 지급합니다. 대학 재학생 및 휴학생은 제외됩니다. 온라인 신청 시 관련 서류를 제출해야 합니다.",
+      "documents": [
+        "졸업증명서",
+        "건강보험 자격득실 확인서"
+      ],
+      "applyUrl": null,
+      "sourceFile": "data/raw/sample-jobseeker.txt",
+      "sourceHash": "d0b051cf49fe09a8951a5e59b050e420388153a92f156291ec35d89417eda34e",
+      "extractedAt": "2026-11-28T05:30:52.873Z",
+      "model": "gpt-4.1"
+    },
+    {
+      "id": "sample-rent",
+      "title": "청년 월세 지원 (가상)",
+      "agency": "서울특별시",
+      "category": "housing",
+      "benefitType": "expense_reduction",
+      "amount": {
+        "monthly": 200000,
+        "lumpSum": null,
+        "durationMonths": 12,
+        "matchRate": null,
+        "matchCapMonthly": null,
+        "depositCapMonthly": null
+      },
+      "conditions": [
+        {
+          "field": "region",
+          "op": "in",
+          "min": null,
+          "max": null,
+          "values": [
+            "서울"
+          ],
+          "label": "서울 거주",
+          "evidence": "공고일 현재 서울특별시에 거주하는 만 19세 이상 34세 이하 청년",
+          "evidenceVerified": true
+        },
+        {
+          "field": "age",
+          "op": "range",
+          "min": 19,
+          "max": 34,
+          "values": null,
+          "label": "만 19~34세",
+          "evidence": "공고일 현재 서울특별시에 거주하는 만 19세 이상 34세 이하 청년",
+          "evidenceVerified": true
+        },
+        {
+          "field": "household",
+          "op": "in",
+          "min": null,
+          "max": null,
+          "values": [
+            "independent"
+          ],
+          "label": "부모와 따로 사는 독립 가구",
+          "evidence": "부모와 따로 사는 독립 가구로서 무주택자",
+          "evidenceVerified": true
+        },
+        {
+          "field": "other",
+          "op": "text",
+          "min": null,
+          "max": null,
+          "values": null,
+          "label": "무주택자",
+          "evidence": "부모와 따로 사는 독립 가구로서 무주택자",
+          "evidenceVerified": true
+        },
+        {
+          "field": "income",
+          "op": "range",
+          "min": 0,
+          "max": 36000000,
+          "values": null,
+          "label": "연소득 3,600만원 이하",
+          "evidence": "본인 연소득 3,600만원 이하",
+          "evidenceVerified": true
+        }
+      ],
+      "period": {
+        "start": "2026-12-01",
+        "end": "2026-12-20",
+        "always": false
+      },
+      "summary": "서울에 거주하는 만 19~34세 청년 중 독립가구와 무주택자, 연소득 3,600만원 이하 대상에게 월 최대 20만원의 월세를 최대 12개월 지원합니다. 임대차계약서 등 서류를 준비해 온라인으로 신청할 수 있습니다.",
+      "documents": [
+        "임대차계약서",
+        "월세 이체 내역",
+        "소득금액증명원"
+      ],
+      "applyUrl": null,
+      "sourceFile": "data/raw/sample-rent.txt",
+      "sourceHash": "7ab08719975069f9be60d171b5412a119c25d7a4fa16f605161e8e1e7f867785",
+      "extractedAt": "2026-11-28T05:30:55.484Z",
+      "model": "gpt-4.1"
+    },
+    {
+      "id": "sample-savings",
+      "title": "[가상] 청년 자산형성 적금",
+      "agency": "금융위원회 (가상)",
+      "category": "savings",
+      "benefitType": "contribution",
+      "amount": {
+        "monthly": null,
+        "lumpSum": null,
+        "durationMonths": 36,
+        "matchRate": 0.06,
+        "matchCapMonthly": 30000,
+        "depositCapMonthly": 500000
+      },
+      "conditions": [
+        {
+          "field": "age",
+          "op": "range",
+          "min": 19,
+          "max": 34,
+          "values": null,
+          "label": "만 19~34세",
+          "evidence": "만 19세 이상 34세 이하 청년",
+          "evidenceVerified": true
+        },
+        {
+          "field": "other",
+          "op": "text",
+          "min": null,
+          "max": null,
+          "values": null,
+          "label": "근로·사업소득 보유",
+          "evidence": "근로소득 또는 사업소득이 있는 자",
+          "evidenceVerified": true
+        },
+        {
+          "field": "income",
+          "op": "range",
+          "min": null,
+          "max": 60000000,
+          "values": null,
+          "label": "연소득 6,000만원 이하",
+          "evidence": "개인 연소득 6,000만원 이하",
+          "evidenceVerified": true
+        }
+      ],
+      "period": {
+        "start": "2026-10-07",
+        "end": "2026-10-16",
+        "always": false
+      },
+      "summary": "매월 자유롭게 최대 50만원까지 납입하면 정부가 납입액의 6%(최대 월 3만원)를 36개월 동안 적립해줍니다. 만기 시 정부 기여금이 일시금으로 지급됩니다. 만 19~34세 청년 중 근로 또는 사업소득이 있고 연소득 6,000만원 이하인 경우 신청할 수 있습니다.",
+      "documents": [
+        "소득금액증명원"
+      ],
+      "applyUrl": null,
+      "sourceFile": "data/raw/sample-savings.txt",
+      "sourceHash": "0fa8122a3ff9a793542e93788b9d9597ffac46b4a3eeec668e969d21ef4cc51a",
+      "extractedAt": "2026-11-28T05:30:57.464Z",
+      "model": "gpt-4.1"
+    }
+  ]
+}
