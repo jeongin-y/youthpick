@@ -1,0 +1,59 @@
+{
+  "note": "data/raw 의 가상 공고를 손으로 구조화한 예시. API 없이 데모·테스트할 때 쓴다. 실제 정책 아님.",
+  "benefits": [
+    {
+      "id": "sample-jobseeker",
+      "title": "[가상] 청년 구직활동 수당",
+      "agency": "서울특별시 (가상)",
+      "category": "job",
+      "benefitType": "cash",
+      "amount": { "monthly": 500000, "lumpSum": null, "durationMonths": 6, "matchRate": null, "matchCapMonthly": null, "depositCapMonthly": null },
+      "conditions": [
+        { "field": "region", "op": "in", "min": null, "max": null, "values": ["서울"], "label": "서울 거주", "evidence": "서울특별시에 거주하는 만 19세 이상 34세 이하 미취업 청년" },
+        { "field": "age", "op": "range", "min": 19, "max": 34, "values": null, "label": "만 19~34세", "evidence": "서울특별시에 거주하는 만 19세 이상 34세 이하 미취업 청년" },
+        { "field": "status", "op": "in", "min": null, "max": null, "values": ["jobseeker"], "label": "미취업자", "evidence": "서울특별시에 거주하는 만 19세 이상 34세 이하 미취업 청년" },
+        { "field": "status", "op": "not_in", "min": null, "max": null, "values": ["student"], "label": "재학생·휴학생 제외", "evidence": "최종학교 졸업 또는 중퇴자 (대학 재학생 및 휴학생은 제외)" },
+        { "field": "other", "op": "text", "min": null, "max": null, "values": null, "label": "가구 중위소득 150% 이하", "evidence": "가구 중위소득 150% 이하" }
+      ],
+      "period": { "start": null, "end": null, "always": true },
+      "summary": "서울 거주 미취업 청년에게 구직활동 기간 동안 월 50만원을 최대 6개월 지급한다.",
+      "documents": ["졸업증명서", "건강보험 자격득실 확인서"],
+      "applyUrl": null
+    },
+    {
+      "id": "sample-rent",
+      "title": "[가상] 청년 월세 지원",
+      "agency": "서울특별시 (가상)",
+      "category": "housing",
+      "benefitType": "expense_reduction",
+      "amount": { "monthly": 200000, "lumpSum": null, "durationMonths": 12, "matchRate": null, "matchCapMonthly": null, "depositCapMonthly": null },
+      "conditions": [
+        { "field": "region", "op": "in", "min": null, "max": null, "values": ["서울"], "label": "서울 거주", "evidence": "공고일 현재 서울특별시에 거주하는 만 19세 이상 34세 이하 청년" },
+        { "field": "age", "op": "range", "min": 19, "max": 34, "values": null, "label": "만 19~34세", "evidence": "공고일 현재 서울특별시에 거주하는 만 19세 이상 34세 이하 청년" },
+        { "field": "household", "op": "in", "min": null, "max": null, "values": ["independent"], "label": "독립 가구", "evidence": "부모와 따로 사는 독립 가구로서 무주택자" },
+        { "field": "income", "op": "range", "min": null, "max": 36000000, "values": null, "label": "연소득 3,600만원 이하", "evidence": "본인 연소득 3,600만원 이하" }
+      ],
+      "period": { "start": "2026-12-01", "end": "2026-12-20", "always": false },
+      "summary": "서울 거주 독립 가구 청년에게 월 최대 20만원의 월세를 12개월간 지원한다.",
+      "documents": ["임대차계약서", "월세 이체 내역", "소득금액증명원"],
+      "applyUrl": null
+    },
+    {
+      "id": "sample-savings",
+      "title": "[가상] 청년 자산형성 적금",
+      "agency": "금융위원회 (가상)",
+      "category": "savings",
+      "benefitType": "contribution",
+      "amount": { "monthly": null, "lumpSum": null, "durationMonths": 36, "matchRate": 0.06, "matchCapMonthly": 30000, "depositCapMonthly": 500000 },
+      "conditions": [
+        { "field": "age", "op": "range", "min": 19, "max": 34, "values": null, "label": "만 19~34세", "evidence": "만 19세 이상 34세 이하 청년" },
+        { "field": "other", "op": "text", "min": null, "max": null, "values": null, "label": "근로·사업소득 있음", "evidence": "근로소득 또는 사업소득이 있는 자" },
+        { "field": "income", "op": "range", "min": null, "max": 60000000, "values": null, "label": "연소득 6,000만원 이하", "evidence": "개인 연소득 6,000만원 이하" }
+      ],
+      "period": { "start": "2026-10-07", "end": "2026-10-16", "always": false },
+      "summary": "월 최대 50만원 납입 시 정부가 납입액의 6%(월 최대 3만원)를 기여금으로 더해 36개월 만기에 지급한다.",
+      "documents": ["소득금액증명원"],
+      "applyUrl": null
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "youthpick",
+  "private": true,
+  "type": "module",
+  "description": "청년 목표자산 내비게이터: 혜택을 목표 도달 기간으로 바꿔 보여주는 서비스",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "extract": "node --env-file-if-exists=.env scripts/extract.js",
+    "extract:dry": "node scripts/extract.js --dry-run",
+    "demo": "node scripts/demo.js",
+    "test": "node --test"
+  }
+}
