@@ -9,6 +9,7 @@
   "scripts": {
     "extract": "node --env-file-if-exists=.env scripts/extract.js",
     "extract:dry": "node scripts/extract.js --dry-run",
+    "start": "node serve.js",
     "demo": "node scripts/demo.js",
     "test": "node --test"
   }

@@ -20,6 +20,7 @@ AI가 붙인 근거 문장이 원문에 없으면 그 조건은 ❓로 처리합
 Node.js 22 이상, 외부 패키지 없음.
 
 ```bash
+npm start              # 화면 실행 → http://localhost:5173/app.html
 npm test              # 판별·시뮬레이션 테스트
 npm run demo          # 페르소나 A로 판별 + 시뮬레이션 출력
 npm run extract:dry   # 어떤 공고가 API로 처리될지 확인 (호출 없음)
